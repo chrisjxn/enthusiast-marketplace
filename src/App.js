@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { HashRouter, Route } from 'react-router-dom';
+import { HashRouter, Switch, Route } from 'react-router-dom';
 import Home from './components/home/Home';
 import Search from './components/search/Search';
 import Results from './components/results/Results';
@@ -12,10 +12,12 @@ class App extends Component {
       <HashRouter>
         <div className="App">
           This is the App Component
-          <Route exact path='/' component={Home} />
-          <Route path='/search' component={Search} />
-          <Route path='/results' component={Results} />
-          <Route path='/listings/:id' component={Listing} />
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route path='/search' component={Search} />
+            <Route path='/results' component={Results} />
+            <Route path='/listing/:id' component={Listing} />
+          </Switch>
         </div>
       </HashRouter>
 
