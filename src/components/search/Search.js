@@ -4,7 +4,7 @@ import { getAllMakes } from './../../redux/reducer';
 
 class Search extends Component {
 
-    componentDidMount() {
+    componentDidMount() {        
         this.props.getAllMakes();
     }
 
