@@ -1,7 +1,12 @@
 require('dotenv').config();
-const express = require('express');
+const express = require('express')
+    , massive = require('massive')
 
 const app = express();
 
-PORT = 3005
+massive(process.env.CONNECTION_STRING).then(db => {
+    app.set('db', db);
+})
+
+const PORT = 3005;
 app.listen(PORT, console.log(`Server listening on port ${PORT}`));
