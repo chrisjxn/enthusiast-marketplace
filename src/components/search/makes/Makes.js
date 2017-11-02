@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getAllMakes } from './../../../redux/reducer';
-import CheckboxBuilder from './../checkboxBuilder/CheckboxBuilder';
+import OneMake from './oneMake/OneMake';
 
 class Makes extends Component {
 
@@ -10,9 +10,10 @@ class Makes extends Component {
     }
 
     render() {
+        console.log(` selectedMakes: ${this.props.selectedMakes}`) // delete later
         let makesList = this.props.allMakes.map(obj => {
             return (
-                <CheckboxBuilder key={obj.id} obj={obj} />
+                <OneMake key={obj.id} obj={obj} />
             )
         })
 
@@ -27,7 +28,8 @@ class Makes extends Component {
 
 function mapStateToProps(state) {
     return {
-        allMakes: state.allMakes
+        allMakes: state.allMakes,
+        selectedMakes: state.selectedMakes // delete later
     }
 }
 
