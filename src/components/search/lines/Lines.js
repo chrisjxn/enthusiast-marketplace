@@ -1,17 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getAllLinesFromSelectedMakes } from './../../../redux/reducer';
+import { getAllLines } from './../../../redux/reducer';
 import OneLine from './oneLine/OneLine';
 
 class Lines extends Component {
 
     componentDidMount() {
-        this.props.getAllLinesFromSelectedMakes();
+        this.props.getAllLines();
     }
 
     render() {
         console.log(this.props.selectedLines) // delete later
-        let linesList = this.props.allLinesFromSelectedMakes.map(obj => {
+        let linesList = this.props.allLines.map(obj => {
             return (
                 <OneLine key={obj.id} obj={obj} />
             )
@@ -28,9 +28,9 @@ class Lines extends Component {
 
 function mapStateToProps(state) {
     return {
-        allLinesFromSelectedMakes: state.allLinesFromSelectedMakes,
+        allLines: state.allLines,
         selectedLines: state.selectedLines // delete later
     }
 }
 
-export default connect(mapStateToProps, { getAllLinesFromSelectedMakes })(Lines);
+export default connect(mapStateToProps, { getAllLines })(Lines);

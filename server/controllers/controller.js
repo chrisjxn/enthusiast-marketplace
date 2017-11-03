@@ -5,10 +5,22 @@ module.exports = {
             res.status(200).send(allMakes)
         })
     },
-    getAllLinesFromSelectedMakes: (req, res) => {
+    getAllLines: (req, res) => {
         let db = req.app.get('db');
-        db.get_all_lines_from_selected_makes().then(allLinesFromSelectedMakes => {
-            res.status(200).send(allLinesFromSelectedMakes)
+        db.get_all_lines().then(allLines => {
+            res.status(200).send(allLines)
+        })
+    },
+    getAllGenerations: (req, res) => {
+        let db = req.app.get('db');
+        db.get_all_generations().then(allGenerations => {
+            res.status(200).send(allGenerations)
+        })
+    },
+    getAllModels: (req, res) => {
+        let db = req.app.get('db');
+        db.get_all_models().then(allModels => {
+            res.status(200).send(allModels)
         })
     }
 }
