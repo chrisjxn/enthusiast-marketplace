@@ -10,7 +10,7 @@ class Makes extends Component {
     }
 
     render() {
-        console.log(` selectedMakes: ${this.props.selectedMakes}`) // delete later
+        console.log(this.props.selectedMakes) // delete later
         let makesList = this.props.allMakes.map(obj => {
             return (
                 <OneMake key={obj.id} obj={obj} />

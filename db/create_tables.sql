@@ -26,3 +26,12 @@ CREATE TABLE models (
     generation_id INT REFERENCES generations(id)
 );
 
+CREATE TABLE listings (
+    id SERIAL PRIMARY KEY,
+    make_id INT REFERENCES makes(id),
+    product_line_id INT REFERENCES product_lines(id),
+    generation_id INT REFERENCES generations(id),
+    model_id INT REFERENCES models(id),
+    year INT
+);
+
