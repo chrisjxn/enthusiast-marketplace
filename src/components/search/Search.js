@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import Makes from './makes/Makes';
 import Lines from './lines/Lines';
 import Generations from './generations/Generations';

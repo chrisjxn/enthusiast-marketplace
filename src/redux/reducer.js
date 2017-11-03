@@ -8,7 +8,9 @@ const initialState = {
     allGenerations: [],
     selectedGenerations: [],
     allModels: [],
-    selectedModels: []
+    selectedModels: [],
+    allListings: [],
+    activeListing: []
 }
 
 const GET_ALL_MAKES = 'GET_ALL_MAKES';
@@ -19,6 +21,8 @@ const GET_ALL_GENERATIONS = 'GET_ALL_GENERATIONS';
 const SELECT_GENERATIONS = 'SELECT_GENERATIONS';
 const GET_ALL_MODELS = 'GET_ALL_MODELS';
 const SELECT_MODELS = 'SELECT_MODELS';
+const GET_ALL_LISTINGS = 'GET_ALL_LISTINGS';
+const GET_ACTIVE_LISTING = 'GET_ACTIVE_LISTING';
 
 export function getAllMakes() {
     const allMakes = axios.get('/api/makes').then(res => res)
@@ -77,6 +81,23 @@ export function selectModels(model) {
     return {
         type: SELECT_MODELS,
         payload: model
+    }
+}
+
+export function getAllListings() {
+    const allListings = axios.get('/api/listings').then(res => res)
+    return {
+        type: GET_ALL_LISTINGS,
+        payload: allListings
+    }
+}
+
+export function getActiveListing(listingId) {
+    console.log("it got here")
+    const activeListing = axios.get(`/api/listing/${listingId}`).then(res => res)
+    return {
+        type: GET_ACTIVE_LISTING,
+        payload: activeListing
     }
 }
 
@@ -146,6 +167,18 @@ export default function reducer(state = initialState, action) {
                 updatedModelsArr = [...state.selectedModels, action.payload]
             }
             return Object.assign({}, state, { selectedModels: updatedModelsArr });
+        case GET_ALL_LISTINGS + '_PENDING':
+            return state;
+        case GET_ALL_LISTINGS + '_FULFILLED':
+            return Object.assign({}, state, { allListings: action.payload.data });
+        case GET_ALL_LISTINGS + '_REJECTED':
+            return state;
+        case GET_ACTIVE_LISTING + '_PENDING':
+            return state;
+        case GET_ACTIVE_LISTING + '_FULFILLED':
+            return Object.assign({}, state, { activeListing: action.payload.data });
+        case GET_ACTIVE_LISTING + '_REJECTED':
+            return state;
         default:
             return state;
     }

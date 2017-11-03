@@ -22,5 +22,17 @@ module.exports = {
         db.get_all_models().then(allModels => {
             res.status(200).send(allModels)
         })
+    },
+    getAllListings: (req, res) => {
+        let db = req.app.get('db');
+        db.get_all_listings().then(allListings => {
+            res.status(200).send(allListings)
+        })
+    },
+    getActiveListing: (req, res) => {
+        let db = req.app.get('db');
+        db.get_active_listing([req.params.listingId]).then(activeListing => {
+            res.status(200).send(activeListing)
+        })
     }
 }
