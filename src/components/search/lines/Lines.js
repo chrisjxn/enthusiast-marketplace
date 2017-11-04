@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { uniq, pluck } from 'underscore';
 import { getAllLines } from './../../../redux/reducer';
-import OneLine from './oneLine/OneLine';
+import Header from './header/Header';
 
 class Lines extends Component {
 
@@ -10,17 +11,16 @@ class Lines extends Component {
     }
 
     render() {
-        console.log(this.props.selectedLines) // delete later
-        let linesList = this.props.allLines.map(obj => {
+        let linesByMake = uniq(pluck(this.props.allLines, 'make')).map(make => {
             return (
-                <OneLine key={obj.id} obj={obj} />
+                <Header key={make} make={make} />
             )
         })
 
         return (
             <div>
-                This is the Lines Component
-                {linesList}
+                <div>Lines</div>
+                <div>{linesByMake}</div>
             </div>
         )
     }
@@ -29,7 +29,6 @@ class Lines extends Component {
 function mapStateToProps(state) {
     return {
         allLines: state.allLines,
-        selectedLines: state.selectedLines // delete later
     }
 }
 

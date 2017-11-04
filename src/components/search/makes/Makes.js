@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { uniq, pluck } from 'underscore';
 import { getAllMakes } from './../../../redux/reducer';
-import OneMake from './oneMake/OneMake';
+import Header from './header/Header';
 
 class Makes extends Component {
 
@@ -10,17 +11,16 @@ class Makes extends Component {
     }
 
     render() {
-        console.log(this.props.selectedMakes) // delete later
-        let makesList = this.props.allMakes.map(obj => {
+        let makesByRegion = uniq(pluck(this.props.allMakes, 'region')).map(region => {
             return (
-                <OneMake key={obj.id} obj={obj} />
+                <Header key={region} region={region} />
             )
         })
 
         return (
             <div>
-                This is the Makes Component
-                {makesList}
+                <div>Makes</div>
+                <div>{makesByRegion}</div>
             </div>
         )
     }
@@ -29,7 +29,6 @@ class Makes extends Component {
 function mapStateToProps(state) {
     return {
         allMakes: state.allMakes,
-        selectedMakes: state.selectedMakes // delete later
     }
 }
 

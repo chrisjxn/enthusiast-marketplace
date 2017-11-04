@@ -3,9 +3,9 @@ import Checkbox from 'material-ui/Checkbox';
 import { connect } from 'react-redux';
 import { selectMakes } from './../../../../redux/reducer';
 
-function OneMake(props) {
+function Make(props) {
 
-    const handleCheck = () => {
+    const handleCheckboxToggle = () => {
         props.selectMakes(props.obj.make)
     }
 
@@ -18,7 +18,7 @@ function OneMake(props) {
         <Checkbox
             label={props.obj.make}
             checked={checkedStatus()}
-            onCheck={handleCheck} />
+            onCheck={handleCheckboxToggle} />
     )
 }
 
@@ -28,4 +28,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, { selectMakes })(OneMake);
+export default connect(mapStateToProps, { selectMakes })(Make);
