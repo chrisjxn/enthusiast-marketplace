@@ -3,9 +3,9 @@ import Checkbox from 'material-ui/Checkbox';
 import { connect } from 'react-redux';
 import { selectGenerations } from './../../../../redux/reducer';
 
-function OneGeneration(props) {
+function Generation(props) {
 
-    const handleCheck = () => {
+    const handleCheckboxToggle = () => {
         props.selectGenerations(props.obj.generation)
     }
 
@@ -18,7 +18,7 @@ function OneGeneration(props) {
         <Checkbox
             label={props.obj.generation}
             checked={checkedStatus()}
-            onCheck={handleCheck} />
+            onCheck={handleCheckboxToggle} />
     )
 }
 
@@ -28,4 +28,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, { selectGenerations })(OneGeneration);
+export default connect(mapStateToProps, { selectGenerations })(Generation);

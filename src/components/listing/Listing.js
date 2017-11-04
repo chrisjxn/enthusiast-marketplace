@@ -4,7 +4,7 @@ import { getActiveListing } from './../../redux/reducer';
 
 class Listing extends Component {
 
-    componentWillMount() {
+    componentDidMount() {
         this.props.getActiveListing(this.props.match.params.listingId);
     }
 

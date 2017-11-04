@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getAllListings } from './../../redux/reducer';
-import OneResult from './oneResult/OneResult';
+import Result from './result/Result';
 
 class Results extends Component {
 
@@ -12,7 +12,7 @@ class Results extends Component {
     render() {
         let resultsList = this.props.allListings.map(obj => {
             return (
-                <OneResult key={obj.id} obj={obj} />
+                <Result key={obj.id} obj={obj} />
             )
         })
 

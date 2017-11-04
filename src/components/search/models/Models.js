@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { uniq, pluck } from 'underscore';
 import { getAllModels } from './../../../redux/reducer';
-import OneModel from './oneModel/OneModel';
+import Header from './header/Header';
 
 class Models extends Component {
 
@@ -10,17 +11,16 @@ class Models extends Component {
     }
 
     render() {
-        console.log(this.props.selectedModels) // delete later
-        let modelsList = this.props.allModels.map(obj => {
+        let modelsByGeneration = uniq(pluck(this.props.allModels, 'generation')).map(generation => {
             return (
-                <OneModel key={obj.id} obj={obj} />
+                <Header key={generation} generation={generation} />
             )
         })
 
         return (
             <div>
-                This is the Models Component
-                {modelsList}
+                <div>Models</div>
+                <div>{modelsByGeneration}</div>
             </div>
         )
     }
@@ -29,7 +29,6 @@ class Models extends Component {
 function mapStateToProps(state) {
     return {
         allModels: state.allModels,
-        selectedModels: state.selectedModels // delete later
     }
 }
 

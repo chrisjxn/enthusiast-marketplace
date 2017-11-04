@@ -93,7 +93,6 @@ export function getAllListings() {
 }
 
 export function getActiveListing(listingId) {
-    console.log("it got here")
     const activeListing = axios.get(`/api/listing/${listingId}`).then(res => res)
     return {
         type: GET_ACTIVE_LISTING,
