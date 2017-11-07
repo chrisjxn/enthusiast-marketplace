@@ -6,11 +6,11 @@ import { selectModels } from './../../../../redux/reducer';
 function Model(props) {
 
     const handleCheckboxToggle = () => {
-        props.selectModels(props.obj.model)
+        props.selectModels(props.obj.id)
     }
 
     const checkedStatus = () => {
-        return props.selectedModels.includes(props.obj.model)
+        return props.selectedModels.includes(props.obj.id)
         // checks to see whether the selectedModels array includes the model and returns true or false, which sets the checked value for the checkbox
     }
 

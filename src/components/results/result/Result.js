@@ -1,18 +1,19 @@
 import React from 'react';
+import './Result.css';
 import { Link } from 'react-router-dom';
 
 export default function OneResult(props) {
     return (
-        <div>
-            <Link to={`/listing/${props.obj.id}`}>
-                <div>.</div>
-                <div>{props.obj.year}</div>
-                <div>{props.obj.make}</div>
-                <div>{props.obj.line}</div>
-                <div>{props.obj.generation}</div>
-                <div>{props.obj.model}</div>
-                <div>{props.obj.id}</div>
-                <div>.</div>
+        <div className="result_wrapper">
+            <Link to={`/listing/${props.obj.id}`} className="link_text">
+                <div className="result_flex">
+                    <img className="cover_photo" src={props.obj.coverphotourl} alt='cover' />
+                    <div>{`Year: ${props.obj.year}`}</div>
+                    <div>{`Make: ${props.obj.make}`}</div>
+                    <div>{`Line: ${props.obj.line}`}</div>
+                    <div>{`Generation: ${props.obj.generation}`}</div>
+                    <div>{`Model: ${props.obj.model}`}</div>
+                </div>
             </Link>
         </div>
     )

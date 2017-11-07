@@ -1,0 +1,7 @@
+.search_wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 170px auto auto auto;
+    width: 1110px;
+}

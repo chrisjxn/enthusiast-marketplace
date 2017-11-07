@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Models.css';
 import { connect } from 'react-redux';
 import { uniq, pluck } from 'underscore';
 import { getAllModels } from './../../../redux/reducer';
@@ -10,6 +11,12 @@ class Models extends Component {
         this.props.getAllModels();
     }
 
+    componentWillReceiveProps(nextProps) {
+        if (this.props.selectedGenerations !== nextProps.selectedGenerations) {
+            this.props.getAllModels()
+        }
+    }
+
     render() {
         let modelsByGeneration = uniq(pluck(this.props.allModels, 'generation')).map(generation => {
             return (
@@ -18,8 +25,8 @@ class Models extends Component {
         })
 
         return (
-            <div>
-                <div>Models</div>
+            <div className="models_wrapper">
+                <div className="model">Model</div>
                 <div>{modelsByGeneration}</div>
             </div>
         )
@@ -29,6 +36,7 @@ class Models extends Component {
 function mapStateToProps(state) {
     return {
         allModels: state.allModels,
+        selectedGenerations: state.selectedGenerations
     }
 }
 

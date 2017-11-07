@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Header.css';
 import { connect } from 'react-redux';
 import Make from './../make/Make';
 
@@ -6,6 +7,7 @@ class Header extends Component {
 
     render() {
         console.log(this.props.selectedMakes) // delete later
+        console.log(this.props.allMakes) // delete later
         let filteredMakes = this.props.allMakes.filter(obj => {
             return obj.region === this.props.region
         })
@@ -18,7 +20,9 @@ class Header extends Component {
 
         return (
             <div>
-                {this.props.region}
+                <div className="header">
+                    {this.props.region}
+                </div>
                 {makesList}
             </div>
         )

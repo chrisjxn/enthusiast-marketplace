@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Header.css';
 import { connect } from 'react-redux';
 import Model from './../model/Model';
 
@@ -18,7 +19,9 @@ class Header extends Component {
 
         return (
             <div>
-                {this.props.generation}
+                <div className="header">
+                    {this.props.generation}
+                </div>
                 {modelsList}
             </div>
         )

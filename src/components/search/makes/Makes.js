@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Makes.css';
 import { connect } from 'react-redux';
 import { uniq, pluck } from 'underscore';
 import { getAllMakes } from './../../../redux/reducer';
@@ -18,8 +19,8 @@ class Makes extends Component {
         })
 
         return (
-            <div>
-                <div>Makes</div>
+            <div className="makes_wrapper">
+                <div className="make">Make</div>
                 <div>{makesByRegion}</div>
             </div>
         )

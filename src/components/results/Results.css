@@ -1,0 +1,8 @@
+.results_grid {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 170px auto 40px auto;
+    width: 97vw;
+}

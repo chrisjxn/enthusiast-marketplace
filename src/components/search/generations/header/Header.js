@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Header.css';
 import { connect } from 'react-redux';
 import Generation from './../generation/Generation';
 
@@ -18,7 +19,9 @@ class Header extends Component {
 
         return (
             <div>
-                {this.props.line}
+                <div className="header">
+                    {this.props.line}
+                </div>
                 {generationsList}
             </div>
         )

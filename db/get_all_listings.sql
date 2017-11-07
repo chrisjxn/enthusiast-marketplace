@@ -4,7 +4,9 @@ SELECT
   make, 
   product_line line, 
   generation, 
-  model 
+  model, 
+  models.id model_id, 
+  cover_photo_url coverphotourl 
 FROM listings 
 LEFT JOIN makes ON makes.id = listings.make_id 
 LEFT JOIN product_lines ON product_lines.id = listings.product_line_id 

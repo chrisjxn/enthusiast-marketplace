@@ -1,3 +1,11 @@
 .App {
   font-family: 'Roboto', sans-serif;
+  color: rgba(255, 255, 255, 0.87);
+}
+
+.logo {
+  height: 90px;
+  position: absolute;
+  top: 40px;
+  right: 50px;
 }

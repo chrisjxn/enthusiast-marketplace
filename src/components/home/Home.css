@@ -1,0 +1,25 @@
+.home_wrapper {
+    display: flex;
+    flex-basis: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.search_button {
+    font-size: 2rem;
+    padding: 10px 25px;
+    border-radius: 5px;
+    border: 3px solid #008AC9;
+    color: #008AC9;
+    background: rgba(0,0,0,0.7);
+}
+
+.link_text {
+    color: rgba(255, 255, 255, 0.87);
+}
+
+.link_text:link, .link_text:visited, .link_text:hover, .link_text:active {
+    text-decoration: none;
+}

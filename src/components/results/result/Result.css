@@ -1,0 +1,25 @@
+.result_wrapper {
+    background: rgba(0,0,0,0.7);
+    width: 48vw;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.result_flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.link_text {
+    color: rgba(255, 255, 255, 0.87);
+}
+
+.link_text:link, .link_text:visited, .link_text:hover, .link_text:active {
+    text-decoration: none;
+}
+
+.cover_photo {
+    width: 48vw;
+    margin-bottom: 10px;
+}

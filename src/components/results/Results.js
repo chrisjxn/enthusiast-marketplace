@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Results.css';
 import { connect } from 'react-redux';
 import { getAllListings } from './../../redux/reducer';
 import Result from './result/Result';
@@ -7,6 +8,12 @@ class Results extends Component {
 
     componentDidMount() {
         this.props.getAllListings();
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (this.props.selectedModels !== nextProps.selectedModels) {
+            this.props.getAllListings()
+        }
     }
 
     render() {
@@ -18,8 +25,9 @@ class Results extends Component {
 
         return (
             <div>
-                This is the Results Component
-                {resultsList}
+                <div className="results_grid">
+                    {resultsList}
+                </div>
             </div>
         )
     }
@@ -28,6 +36,7 @@ class Results extends Component {
 function mapStateToProps(state) {
     return {
         allListings: state.allListings,
+        selectedModels: state.selectedModels
     }
 }
 

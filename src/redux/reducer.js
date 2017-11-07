@@ -77,10 +77,10 @@ export function getAllModels() {
     }
 }
 
-export function selectModels(model) {
+export function selectModels(modelId) {
     return {
         type: SELECT_MODELS,
-        payload: model
+        payload: modelId
     }
 }
 
@@ -121,7 +121,12 @@ export default function reducer(state = initialState, action) {
         case GET_ALL_LINES + '_PENDING':
             return state;
         case GET_ALL_LINES + '_FULFILLED':
-            return Object.assign({}, state, { allLines: action.payload.data });
+            let filteredLines = [];
+            state.selectedMakes.forEach(make => {
+                let linesForSelectedMake = action.payload.data.filter(obj => obj.make === make)
+                filteredLines = [...filteredLines, ...linesForSelectedMake]
+            })
+            return Object.assign({}, state, { allLines: filteredLines });
         case GET_ALL_LINES + '_REJECTED':
             return state;
         case SELECT_LINES:
@@ -137,7 +142,12 @@ export default function reducer(state = initialState, action) {
         case GET_ALL_GENERATIONS + '_PENDING':
             return state;
         case GET_ALL_GENERATIONS + '_FULFILLED':
-            return Object.assign({}, state, { allGenerations: action.payload.data });
+            let filteredGenerations = [];
+            state.selectedLines.forEach(line => {
+                let generationsForSelectedLine = action.payload.data.filter(obj => obj.line === line)
+                filteredGenerations = [...filteredGenerations, ...generationsForSelectedLine]
+            })
+            return Object.assign({}, state, { allGenerations: filteredGenerations });
         case GET_ALL_GENERATIONS + '_REJECTED':
             return state;
         case SELECT_GENERATIONS:
@@ -153,14 +163,19 @@ export default function reducer(state = initialState, action) {
         case GET_ALL_MODELS + '_PENDING':
             return state;
         case GET_ALL_MODELS + '_FULFILLED':
-            return Object.assign({}, state, { allModels: action.payload.data });
+            let filteredModels = [];
+            state.selectedGenerations.forEach(generation => {
+                let modelsForSelectedGeneration = action.payload.data.filter(obj => obj.generation === generation)
+                filteredModels = [...filteredModels, ...modelsForSelectedGeneration]
+            })
+            return Object.assign({}, state, { allModels: filteredModels });
         case GET_ALL_MODELS + '_REJECTED':
             return state;
         case SELECT_MODELS:
             let updatedModelsArr = [];
             if (state.selectedModels.includes(action.payload)) {
-                updatedModelsArr = state.selectedModels.filter(model => {
-                    return model !== action.payload
+                updatedModelsArr = state.selectedModels.filter(modelId => {
+                    return modelId !== action.payload
                 })
             } else {
                 updatedModelsArr = [...state.selectedModels, action.payload]
@@ -169,7 +184,12 @@ export default function reducer(state = initialState, action) {
         case GET_ALL_LISTINGS + '_PENDING':
             return state;
         case GET_ALL_LISTINGS + '_FULFILLED':
-            return Object.assign({}, state, { allListings: action.payload.data });
+            let filteredListings = [];
+            state.selectedModels.forEach(modelId => {
+                let listingsForSelectedModel = action.payload.data.filter(obj => obj.model_id === modelId)
+                filteredListings = [...filteredListings, ...listingsForSelectedModel]
+            })
+            return Object.assign({}, state, { allListings: filteredListings });
         case GET_ALL_LISTINGS + '_REJECTED':
             return state;
         case GET_ACTIVE_LISTING + '_PENDING':

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Header.css';
 import { connect } from 'react-redux';
 import Line from './../line/Line';
 
@@ -18,7 +19,9 @@ class Header extends Component {
 
         return (
             <div>
-                {this.props.make}
+                <div className="header">
+                    {this.props.make}
+                </div>
                 {linesList}
             </div>
         )

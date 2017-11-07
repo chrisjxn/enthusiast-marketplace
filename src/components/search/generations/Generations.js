@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Generations.css';
 import { connect } from 'react-redux';
 import { uniq, pluck } from 'underscore';
 import { getAllGenerations } from './../../../redux/reducer';
@@ -10,6 +11,12 @@ class Generations extends Component {
         this.props.getAllGenerations();
     }
 
+    componentWillReceiveProps(nextProps) {
+        if (this.props.selectedLines !== nextProps.selectedLines) {
+            this.props.getAllGenerations()
+        }
+    }
+
     render() {
         let generationsByLine = uniq(pluck(this.props.allGenerations, 'line')).map(line => {
             return (
@@ -18,8 +25,8 @@ class Generations extends Component {
         })
 
         return (
-            <div>
-                <div>Generations</div>
+            <div className="generations_wrapper">
+                <div className="generation">Generation</div>
                 <div>{generationsByLine}</div>
             </div>
         )
@@ -29,6 +36,7 @@ class Generations extends Component {
 function mapStateToProps(state) {
     return {
         allGenerations: state.allGenerations,
+        selectedLines: state.selectedLines
     }
 }
 
