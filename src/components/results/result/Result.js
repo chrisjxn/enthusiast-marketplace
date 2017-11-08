@@ -7,7 +7,7 @@ export default function OneResult(props) {
         <div className="result_wrapper">
             <Link to={`/listing/${props.obj.id}`} className="link_text">
                 <div className="result_flex">
-                    <img className="cover_photo" src={props.obj.coverphotourl} alt='cover' />
+                    <img className="cover_photo" src={props.obj.photo1} alt='cover' />
                     <div>{`Year: ${props.obj.year}`}</div>
                     <div>{`Make: ${props.obj.make}`}</div>
                     <div>{`Line: ${props.obj.line}`}</div>

@@ -6,7 +6,7 @@ SELECT
   generation, 
   model, 
   models.id model_id, 
-  cover_photo_url coverphotourl 
+  photo1 
 FROM listings 
 LEFT JOIN makes ON makes.id = listings.make_id 
 LEFT JOIN product_lines ON product_lines.id = listings.product_line_id 
