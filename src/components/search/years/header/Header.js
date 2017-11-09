@@ -8,7 +8,7 @@ class Header extends Component {
     render() {
         console.log(this.props.selectedYears) // delete later
         let filteredYears = this.props.allYears.filter(obj => {
-            return obj.model === this.props.model
+            return obj.model_id === this.props.obj.model_id
         })
 
         let yearsList = filteredYears.map(obj => {
@@ -20,7 +20,7 @@ class Header extends Component {
         return (
             <div>
                 <div className="years_header">
-                    {this.props.model}
+                    {`${this.props.obj.model} (${this.props.obj.generation})`}
                 </div>
                 {yearsList}
             </div>

@@ -206,8 +206,8 @@ export default function reducer(state = initialState, action) {
             return state;
         case GET_ALL_YEARS + '_FULFILLED':
             let filteredYears = [];
-            state.selectedModels.forEach(model => {
-                let yearsForSelectedModel = action.payload.data.filter(obj => obj.model === model)
+            state.selectedModels.forEach(selectedModelsObj => {
+                let yearsForSelectedModel = action.payload.data.filter(obj => obj.model_id === selectedModelsObj.id)
                 filteredYears = [...filteredYears, ...yearsForSelectedModel]
             })
             return Object.assign({}, state, { allYears: filteredYears });

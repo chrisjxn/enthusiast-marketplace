@@ -18,9 +18,13 @@ class Years extends Component {
     }
 
     render() {
-        let yearsByModel = uniq(pluck(this.props.allYears, 'model')).map(model => {
+        let uniqueModelIds = uniq(pluck(this.props.allYears, 'model_id'));
+        let uniqueModelData = uniqueModelIds.map(modelId => {
+            return this.props.allYears.filter(obj => obj.model_id === modelId)[0];
+        });
+        let yearsByModel = uniqueModelData.map(obj => {
             return (
-                <Header key={model} model={model} />
+                <Header key={obj.model_id} obj={obj} />
             )
         })
 

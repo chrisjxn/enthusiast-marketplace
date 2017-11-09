@@ -4,7 +4,8 @@ SELECT
   make, 
   product_line line, 
   generation, 
-  model 
+  model, 
+  years.model_id 
 FROM years 
 INNER JOIN makes ON makes.id = years.make_id 
 INNER JOIN product_lines ON product_lines.id = years.product_line_id 
