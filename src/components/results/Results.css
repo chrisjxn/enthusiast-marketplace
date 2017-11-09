@@ -8,10 +8,6 @@
 }
 
 .results_grid {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin: 170px auto 100px auto;
-    width: 97vw;
+    margin: 200px auto 100px auto;
+    width: 70vw;
 }
