@@ -6,7 +6,7 @@ export default function Home() {
     return (
         <div className="home_wrapper">
             <div className="search_button">
-                <Link to='/search' className="link_text">Find your car</Link>
+                <Link to='/search' className="search_link_text">Find your car</Link>
             </div>
         </div>
     )

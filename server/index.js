@@ -14,6 +14,7 @@ app.get('/api/makes', controller.getAllMakes);
 app.get('/api/lines', controller.getAllLines);
 app.get('/api/generations', controller.getAllGenerations);
 app.get('/api/models', controller.getAllModels);
+app.get('/api/years', controller.getAllYears);
 app.get('/api/listings', controller.getAllListings);
 app.get('/api/listing/:listingId', controller.getActiveListing);
 

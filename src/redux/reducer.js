@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { pluck } from 'underscore';
 
 const initialState = {
     allMakes: [],
@@ -9,6 +10,8 @@ const initialState = {
     selectedGenerations: [],
     allModels: [],
     selectedModels: [],
+    allYears: [],
+    selectedYears: [],
     allListings: [],
     activeListing: []
 }
@@ -21,6 +24,8 @@ const GET_ALL_GENERATIONS = 'GET_ALL_GENERATIONS';
 const SELECT_GENERATIONS = 'SELECT_GENERATIONS';
 const GET_ALL_MODELS = 'GET_ALL_MODELS';
 const SELECT_MODELS = 'SELECT_MODELS';
+const GET_ALL_YEARS = 'GET_ALL_YEARS';
+const SELECT_YEARS = 'SELECT_YEARS';
 const GET_ALL_LISTINGS = 'GET_ALL_LISTINGS';
 const GET_ACTIVE_LISTING = 'GET_ACTIVE_LISTING';
 
@@ -77,10 +82,26 @@ export function getAllModels() {
     }
 }
 
-export function selectModels(modelId) {
+export function selectModels(modelId, model) {
     return {
         type: SELECT_MODELS,
-        payload: modelId
+        payload1: modelId,
+        payload2: model
+    }
+}
+
+export function getAllYears() {
+    const allYears = axios.get('/api/years').then(res => res)
+    return {
+        type: GET_ALL_YEARS,
+        payload: allYears
+    }
+}
+
+export function selectYears(yearId) {
+    return {
+        type: SELECT_YEARS,
+        payload: yearId
     }
 }
 
@@ -173,14 +194,35 @@ export default function reducer(state = initialState, action) {
             return state;
         case SELECT_MODELS:
             let updatedModelsArr = [];
-            if (state.selectedModels.includes(action.payload)) {
-                updatedModelsArr = state.selectedModels.filter(modelId => {
-                    return modelId !== action.payload
+            if (pluck(state.selectedModels, 'id').includes(action.payload1)) {
+                updatedModelsArr = state.selectedModels.filter(obj => {
+                    return obj.id !== action.payload1
                 })
             } else {
-                updatedModelsArr = [...state.selectedModels, action.payload]
+                updatedModelsArr = [...state.selectedModels, { id: action.payload1, model: action.payload2 }]
             }
             return Object.assign({}, state, { selectedModels: updatedModelsArr });
+        case GET_ALL_YEARS + '_PENDING':
+            return state;
+        case GET_ALL_YEARS + '_FULFILLED':
+            let filteredYears = [];
+            state.selectedModels.forEach(model => {
+                let yearsForSelectedModel = action.payload.data.filter(obj => obj.model === model)
+                filteredYears = [...filteredYears, ...yearsForSelectedModel]
+            })
+            return Object.assign({}, state, { allYears: filteredYears });
+        case GET_ALL_YEARS + '_REJECTED':
+            return state;
+        case SELECT_YEARS:
+            let updatedYearsArr = [];
+            if (state.selectedYears.includes(action.payload)) {
+                updatedYearsArr = state.selectedYears.filter(yearId => {
+                    return yearId !== action.payload
+                })
+            } else {
+                updatedYearsArr = [...state.selectedYears, action.payload]
+            }
+            return Object.assign({}, state, { selectedYears: updatedYearsArr });
         case GET_ALL_LISTINGS + '_PENDING':
             return state;
         case GET_ALL_LISTINGS + '_FULFILLED':

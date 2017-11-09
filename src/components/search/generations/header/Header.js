@@ -19,7 +19,7 @@ class Header extends Component {
 
         return (
             <div>
-                <div className="header">
+                <div className="generations_header">
                     {this.props.line}
                 </div>
                 {generationsList}

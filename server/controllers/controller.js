@@ -23,6 +23,12 @@ module.exports = {
             res.status(200).send(allModels)
         })
     },
+    getAllYears: (req, res) => {
+        let db = req.app.get('db');
+        db.get_all_years().then(allYears => {
+            res.status(200).send(allYears)
+        })
+    },
     getAllListings: (req, res) => {
         let db = req.app.get('db');
         db.get_all_listings().then(allListings => {

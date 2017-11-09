@@ -1,5 +1,4 @@
 .result_wrapper {
-    background: rgba(0,0,0,0.7);
     width: 48vw;
     margin-bottom: 10px;
     padding-bottom: 10px;
@@ -11,15 +10,17 @@
     align-items: center;
 }
 
-.link_text {
-    color: rgba(255, 255, 255, 0.87);
+.listing_link_text {
+    color: rgba(0, 0, 0, 0.87);
+    font-weight: 400;
 }
 
-.link_text:link, .link_text:visited, .link_text:hover, .link_text:active {
+.listing_link_text:link, .listing_link_text:visited, .listing_link_text:hover, .listing_link_text:active {
     text-decoration: none;
 }
 
 .cover_photo {
     width: 48vw;
     margin-bottom: 10px;
+    border: 2px solid #BDBDBD;
 }

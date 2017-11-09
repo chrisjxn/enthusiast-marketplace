@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export default function OneResult(props) {
     return (
         <div className="result_wrapper">
-            <Link to={`/listing/${props.obj.id}`} className="link_text">
+            <Link to={`/listing/${props.obj.id}`} className="listing_link_text">
                 <div className="result_flex">
                     <img className="cover_photo" src={props.obj.photo1} alt='cover' />
                     <div>{`Year: ${props.obj.year}`}</div>

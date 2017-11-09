@@ -19,7 +19,7 @@ class Header extends Component {
 
         return (
             <div>
-                <div className="header">
+                <div className="lines_header">
                     {this.props.make}
                 </div>
                 {linesList}

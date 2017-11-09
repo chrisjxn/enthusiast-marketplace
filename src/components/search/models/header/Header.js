@@ -19,7 +19,7 @@ class Header extends Component {
 
         return (
             <div>
-                <div className="header">
+                <div className="models_header">
                     {this.props.generation}
                 </div>
                 {modelsList}
