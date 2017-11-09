@@ -10,7 +10,7 @@ import Years from './years/Years';
 class Search extends Component {
     render() {
         return (
-            <div className="background">
+            <div className="search_background">
                 <div className="search_wrapper">
                     <Makes />
                     <Lines />

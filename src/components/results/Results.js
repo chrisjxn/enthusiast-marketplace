@@ -11,7 +11,7 @@ class Results extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if (this.props.selectedModels !== nextProps.selectedModels) {
+        if (this.props.selectedYears !== nextProps.selectedYears) {
             this.props.getAllListings()
         }
     }
@@ -24,7 +24,7 @@ class Results extends Component {
         })
 
         return (
-            <div>
+            <div className="results_background">
                 <div className="results_grid">
                     {resultsList}
                 </div>
@@ -36,7 +36,7 @@ class Results extends Component {
 function mapStateToProps(state) {
     return {
         allListings: state.allListings,
-        selectedModels: state.selectedModels
+        selectedYears: state.selectedYears
     }
 }
 

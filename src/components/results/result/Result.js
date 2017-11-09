@@ -2,7 +2,7 @@ import React from 'react';
 import './Result.css';
 import { Link } from 'react-router-dom';
 
-export default function OneResult(props) {
+export default function Result(props) {
     return (
         <div className="result_wrapper">
             <Link to={`/listing/${props.obj.id}`} className="listing_link_text">

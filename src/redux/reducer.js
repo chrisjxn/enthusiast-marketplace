@@ -227,9 +227,9 @@ export default function reducer(state = initialState, action) {
             return state;
         case GET_ALL_LISTINGS + '_FULFILLED':
             let filteredListings = [];
-            state.selectedModels.forEach(modelId => {
-                let listingsForSelectedModel = action.payload.data.filter(obj => obj.model_id === modelId)
-                filteredListings = [...filteredListings, ...listingsForSelectedModel]
+            state.selectedYears.forEach(yearId => {
+                let listingsForSelectedYear = action.payload.data.filter(obj => obj.year_id === yearId)
+                filteredListings = [...filteredListings, ...listingsForSelectedYear]
             })
             return Object.assign({}, state, { allListings: filteredListings });
         case GET_ALL_LISTINGS + '_REJECTED':
