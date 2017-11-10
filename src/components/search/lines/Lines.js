@@ -3,6 +3,7 @@ import './Lines.css';
 import { connect } from 'react-redux';
 import { uniq, pluck } from 'underscore';
 import { getAllLines } from './../../../redux/reducer';
+import Paper from 'material-ui/Paper';
 import Header from './header/Header';
 
 class Lines extends Component {
@@ -12,7 +13,7 @@ class Lines extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if(this.props.selectedMakes !== nextProps.selectedMakes) {
+        if (this.props.selectedMakes !== nextProps.selectedMakes) {
             this.props.getAllLines()
         }
     }
@@ -25,9 +26,11 @@ class Lines extends Component {
         })
 
         return (
-            <div className="lines_wrapper">
-                <div className="line">Line</div>
-                <div>{linesByMake}</div>
+            <div>
+                <Paper className="lines_wrapper" zDepth={3}>
+                    <div className="line">Line</div>
+                    <div>{linesByMake}</div>
+                </Paper>
             </div>
         )
     }

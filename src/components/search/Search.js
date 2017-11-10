@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Search.css';
 import { Link } from 'react-router-dom';
+import Paper from 'material-ui/Paper';
 import Makes from './makes/Makes';
 import Lines from './lines/Lines';
 import Generations from './generations/Generations';
@@ -19,11 +20,10 @@ class Search extends Component {
                     <Years />
                 </div>
                 <div className="results_button_wrapper">
-                    <div className="results_button">
+                    <Paper className="results_button" zDepth={3}>
                         <Link to='/results' className="results_link_text">Search</Link>
-                    </div>
+                    </Paper>
                 </div>
-
             </div>
         )
     }

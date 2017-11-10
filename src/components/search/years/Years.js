@@ -3,6 +3,7 @@ import './Years.css';
 import { connect } from 'react-redux';
 import { uniq, pluck } from 'underscore';
 import { getAllYears } from './../../../redux/reducer';
+import Paper from 'material-ui/Paper';
 import Header from './header/Header';
 
 class Years extends Component {
@@ -29,9 +30,11 @@ class Years extends Component {
         })
 
         return (
-            <div className="years_wrapper">
-                <div className="year">Year</div>
-                <div>{yearsByModel}</div>
+            <div>
+                <Paper className="years_wrapper" zDepth={3}>
+                    <div className="year">Year</div>
+                    <div>{yearsByModel}</div>
+                </Paper>
             </div>
         )
     }

@@ -1,7 +1,7 @@
 .result_wrapper {
-    width: 67vw;
-    margin: auto;
-    padding-bottom: 20px;
+    /* width: 60vw; */
+    /* margin: auto; */
+    padding-bottom: 30px;
 }
 
 .result_flex {
@@ -12,7 +12,6 @@
 
 .listing_link_text {
     color: rgba(255, 255, 255, 0.87);
-    font-weight: 400;
 }
 
 .listing_link_text:link, .listing_link_text:visited, .listing_link_text:hover, .listing_link_text:active {
@@ -20,6 +19,83 @@
 }
 
 .cover_photo {
-    width: 67vw;
-    margin-bottom: 15px;
+    width: 60vw;
+}
+
+.result_row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 60vw;
+    margin-bottom: 6px;
+}
+
+.row1_title {
+    padding: 10px;
+    border-radius: 5px;
+    color: rgba(0, 0, 0, 0.87);
+    font-weight: 600;
+    text-transform: uppercase;
+    border: 1px solid #EEEEEE;
+    text-align: center;
+    width: 60vw;
+    margin: 0px 6px;
+}
+
+.row1_price_miles {
+    padding: 10px;
+    border-radius: 5px;
+    color: rgba(0, 0, 0, 0.87);
+    text-transform: uppercase;
+    border: 1px solid #EEEEEE;
+    text-align: center;
+    width: 20vw;
+}
+
+.row2_color_interior {
+    padding: 10px;
+    border-radius: 5px;
+    color: rgba(0, 0, 0, 0.87);
+    text-transform: uppercase;
+    border: 1px solid #EEEEEE;
+    text-align: center;
+    width: 60vw;
+    margin: 0px 6px;
+}
+
+.row2_location {
+    padding: 10px;
+    border-radius: 5px;
+    color: rgba(0, 0, 0, 0.87);
+    text-transform: uppercase;
+    border: 1px solid #EEEEEE;
+    text-align: center;
+    width: 30vw;
+}
+
+.row2_transmission {
+    padding: 10px;
+    border-radius: 5px;
+    color: rgba(0, 0, 0, 0.87);
+    text-transform: uppercase;
+    border: 1px solid #EEEEEE;
+    text-align: center;
+    width: 5vw;
+}
+
+.row2_owners {
+    padding: 10px;
+    border-radius: 5px;
+    color: rgba(0, 0, 0, 0.87);
+    text-transform: uppercase;
+    border: 1px solid #EEEEEE;
+    text-align: center;
+    width: 5vw;
+    margin-left: 6px;
+}
+
+.paper {
+    width: 60vw;
+    height: 33vw;
+    margin-bottom: 20px;
 }

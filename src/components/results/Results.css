@@ -2,12 +2,12 @@
     position: absolute;
     width: 100%;
     min-height: 100vh;
-    background-image: url('./../../assets/background-image.jpg');
-    background-size: 100%;
+    /* background-image: url('./../../assets/background-image.jpg');
+    background-size: 100%; */
     z-index: -1;
 }
 
 .results_grid {
-    margin: 200px auto 100px auto;
+    margin: 10vh auto 10vh auto;
     width: 70vw;
 }

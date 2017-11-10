@@ -1,27 +1,31 @@
 .home_wrapper {
     display: flex;
-    flex-basis: column;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
     min-height: 100vh;
-    background-image: url('./../../assets/background-image.jpg');
-    background-size: 100%;
+    /* background-image: url('./../../assets/background-image.jpg');
+    background-size: 100%; */
 }
 
 .search_button {
-    font-size: 2rem;
+    font-size: 1.5rem;
+    text-transform: uppercase;
     padding: 10px 25px;
-    border-radius: 5px;
-    border: 3px solid #008AC9;
-    color: #008AC9;
-    background: rgba(0,0,0,0.7);
+    /* border-radius: 5px; */
+    border: 1px solid #EEEEEE;
 }
 
 .search_link_text {
-    color: rgba(255, 255, 255, 0.87);
+    color: #008AC9;
 }
 
 .search_link_text:link, .search_link_text:visited, .search_link_text:hover, .search_link_text:active {
     text-decoration: none;
+}
+
+.circle_logo {
+    width: 20vw;
+    margin-bottom: 20px;
 }

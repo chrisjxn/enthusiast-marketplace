@@ -35,6 +35,8 @@ CREATE TABLE years (
    model_id INT REFERENCES models(id)
 );
 
+
+-- not current
 CREATE TABLE listings (
     id SERIAL PRIMARY KEY,
     make_id INT REFERENCES makes(id),

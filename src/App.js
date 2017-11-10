@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import logo from './assets/halcyon-logo.png';
+// import logo from './assets/halcyon-logo.png';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import { HashRouter, Switch, Route, Link } from 'react-router-dom';
@@ -13,33 +13,37 @@ import Listing from './components/listing/Listing';
 
 const muiTheme = getMuiTheme({
   palette: {
-    primary1Color: '#008AC9',
+    // primary1Color: '#008AC9',
     // primary2Color: '#26c6da',
     // primary3Color: '#90caf9',
     // accent1Color: '#ff4081',
     // accent2Color: '#f50057',
     // accent3Color: '#ff80ab',
-    textColor: 'rgba(255, 255, 255, 0.87)',
-    secondaryTextColor: '#303030',
-    alternateTextColor: 'rgba(255,255,255,0.7)',
-    canvasColor: '#303030',
-    borderColor: 'rgba(255,255,255,0.3)',
-    disabledColor: 'rgba(255,255,255,0.3)',
-    pickerHeaderColor: 'rgba(255,255,255,0.12)',
-    clockCircleColor: 'rgba(255,255,255,0.12)',
-    shadowColor: 'rgba(0, 0, 0, 1)',
-    alternateСanvasColor: '#e0e0e0',
-    alternate1Color: 'rgba(0, 0, 0, 0.54)',
-    alternate2Color: '#616161',
+    // textColor: 'rgba(0, 0, 0, 0.7)',
+    // secondaryTextColor: '#303030',
+    // alternateTextColor: 'rgba(255,255,255,0.7)',
+    // canvasColor: '#303030',
+    // borderColor: 'rgba(255,255,255,0.3)',
+    // disabledColor: 'rgba(255,255,255,0.3)',
+    // pickerHeaderColor: 'rgba(255,255,255,0.12)',
+    // clockCircleColor: 'rgba(255,255,255,0.12)',
+    // shadowColor: 'rgba(0, 0, 0, 1)',
+    // alternateСanvasColor: '#e0e0e0',
+    // alternate1Color: 'rgba(0, 0, 0, 0.54)',
+    // alternate2Color: '#616161',
   },
   checkbox: {
-    boxColor: 'rgba(255, 255, 255, 0.87)',
+    boxColor: 'rgba(0, 0, 0, 0.54)',
     checkedColor: '#008AC9',
-    requiredColor: '#008AC9',
-    disabledColor: 'rgba(255,255,255,0.3)',
-    labelColor: 'rgba(255, 255, 255, 0.87)',
-    labelDisabledColor: 'rgba(255,255,255,0.3)',
+    // requiredColor: '#008AC9',
+    // disabledColor: 'rgba(255,255,255,0.3)',
+    labelColor: 'rgba(0, 0, 0, 0.7)',
+    // labelDisabledColor: 'rgba(255,255,255,0.3)',
   },
+  paper: {
+    color: 'rgba(0, 0, 0, 0.7)',
+    backgroundColor: 'rgba(255,255,255,0.87)',
+  }
 });
 
 class App extends Component {
@@ -50,7 +54,8 @@ class App extends Component {
           <div className="App">
             <div>
               <Link to='/'>
-                <img className="logo" src={logo} alt='logo' />
+                <div className="hidden_home"></div>
+                {/* <img className="logo" src={logo} alt='logo' /> */}
               </Link>
             </div>
             <Switch>

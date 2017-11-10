@@ -7,7 +7,11 @@ SELECT
   models.id model_id, 
   year, 
   years.id year_id, 
-  photo1 
+  photo1, 
+  price, 
+  miles, 
+  location, 
+  owners 
 FROM listings 
 LEFT JOIN makes ON makes.id = listings.make_id 
 LEFT JOIN product_lines ON product_lines.id = listings.product_line_id 

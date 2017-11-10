@@ -3,6 +3,7 @@ import './Models.css';
 import { connect } from 'react-redux';
 import { uniq, pluck } from 'underscore';
 import { getAllModels } from './../../../redux/reducer';
+import Paper from 'material-ui/Paper';
 import Header from './header/Header';
 
 class Models extends Component {
@@ -25,9 +26,11 @@ class Models extends Component {
         })
 
         return (
-            <div className="models_wrapper">
-                <div className="model">Model</div>
-                <div>{modelsByGeneration}</div>
+            <div>
+                <Paper className="models_wrapper" zDepth={3}>
+                    <div className="model">Model</div>
+                    <div>{modelsByGeneration}</div>
+                </Paper>
             </div>
         )
     }

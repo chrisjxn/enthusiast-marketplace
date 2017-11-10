@@ -2,8 +2,8 @@
     position: absolute;
     width: 100%;
     min-height: 100vh;
-    background-image: url('./../../assets/background-image.jpg');
-    background-size: 100%;
+    /* background-image: url('./../../assets/background-image.jpg');
+    background-size: 100%; */
     z-index: -1;
 }
 
@@ -12,7 +12,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin: 170px auto auto auto;
+    margin: 10vh auto auto auto;
     width: 1180px;
 }
 
@@ -29,12 +29,11 @@
     text-transform: uppercase;
     font-size: 1.2rem;
     padding: 10px 25px;
-    border-radius: 10px;
-    border: 2px solid #008AC9;
-    background: rgba(0,0,0,0.7);
+    /* border-radius: 10px; */
+    border: 1px solid #EEEEEE;
     width: 240px;
     text-align: center;
-    margin-bottom: 100px;
+    margin-bottom: 10vh;
 }
 
 .results_link_text {

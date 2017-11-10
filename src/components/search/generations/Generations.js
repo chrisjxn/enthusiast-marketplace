@@ -3,6 +3,7 @@ import './Generations.css';
 import { connect } from 'react-redux';
 import { uniq, pluck } from 'underscore';
 import { getAllGenerations } from './../../../redux/reducer';
+import Paper from 'material-ui/Paper';
 import Header from './header/Header';
 
 class Generations extends Component {
@@ -25,9 +26,11 @@ class Generations extends Component {
         })
 
         return (
-            <div className="generations_wrapper">
-                <div className="generation">Generation</div>
-                <div>{generationsByLine}</div>
+            <div>
+                <Paper className="generations_wrapper" zDepth={3}>
+                    <div className="generation">Generation</div>
+                    <div>{generationsByLine}</div>
+                </Paper>
             </div>
         )
     }
