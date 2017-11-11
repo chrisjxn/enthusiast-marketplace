@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Listing.css';
-import './../../../node_modules/slick-carousel/slick/slick.css';
-import './../../../node_modules/slick-carousel/slick/slick-theme.css';
+// import './../../../node_modules/slick-carousel/slick/slick.css';
+// import './../../../node_modules/slick-carousel/slick/slick-theme.css';
 import { connect } from 'react-redux';
 import { getActiveListing } from './../../redux/reducer';
 import Slider from 'react-slick';
