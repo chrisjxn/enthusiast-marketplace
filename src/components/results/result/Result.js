@@ -17,9 +17,9 @@ export default function Result(props) {
                         <div className="row1_price_miles">{`${props.obj.miles} miles`}</div>
                     </div>
                     <div className="result_row">
-                        <div className="row2_transmission">{`PDK`}</div>
+                        <div className="row2_transmission">{`${props.obj.transmission}`}</div>
                         <div className="row2_owners">{`${props.obj.owners}`}</div>
-                        <div className="row2_color_interior">{`Black Sapphire Metallic | Black Leather`}</div>
+                        <div className="row2_color_interior">{`${props.obj.color} | ${props.obj.interior}`}</div>
                         <div className="row2_location">{`${props.obj.location}`}</div>
                     </div>
                 </div>

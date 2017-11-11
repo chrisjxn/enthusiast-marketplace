@@ -35,13 +35,75 @@ CREATE TABLE years (
    model_id INT REFERENCES models(id)
 );
 
-CREATE TABLE configurations (
+CREATE TABLE colors (
    id SERIAL PRIMARY KEY, 
-   attribute_type VARCHAR(20), 
-   attribute_value TEXT, 
+   color VARCHAR(80), 
+   make_id INT REFERENCES makes(id), 
+   product_line_id INT REFERENCES product_lines(id), 
+   generation_id INT REFERENCES generations(id), 
+   model_id INT REFERENCES models(id), 
    year_id INT REFERENCES years(id)
 );
 
+CREATE TABLE engines (
+   id SERIAL PRIMARY KEY, 
+   engine VARCHAR(80), 
+   make_id INT REFERENCES makes(id), 
+   product_line_id INT REFERENCES product_lines(id), 
+   generation_id INT REFERENCES generations(id), 
+   model_id INT REFERENCES models(id), 
+   year_id INT REFERENCES years(id)
+);
+
+CREATE TABLE interiors (
+   id SERIAL PRIMARY KEY, 
+   interior VARCHAR(80), 
+   make_id INT REFERENCES makes(id), 
+   product_line_id INT REFERENCES product_lines(id), 
+   generation_id INT REFERENCES generations(id), 
+   model_id INT REFERENCES models(id), 
+   year_id INT REFERENCES years(id)
+);
+
+CREATE TABLE options (
+   id SERIAL PRIMARY KEY, 
+   option VARCHAR(80), 
+   make_id INT REFERENCES makes(id), 
+   product_line_id INT REFERENCES product_lines(id), 
+   generation_id INT REFERENCES generations(id), 
+   model_id INT REFERENCES models(id), 
+   year_id INT REFERENCES years(id)
+);
+
+CREATE TABLE packages (
+   id SERIAL PRIMARY KEY, 
+   package VARCHAR(80), 
+   make_id INT REFERENCES makes(id), 
+   product_line_id INT REFERENCES product_lines(id), 
+   generation_id INT REFERENCES generations(id), 
+   model_id INT REFERENCES models(id), 
+   year_id INT REFERENCES years(id)
+);
+
+CREATE TABLE transmissions (
+   id SERIAL PRIMARY KEY, 
+   transmission VARCHAR(80), 
+   make_id INT REFERENCES makes(id), 
+   product_line_id INT REFERENCES product_lines(id), 
+   generation_id INT REFERENCES generations(id), 
+   model_id INT REFERENCES models(id), 
+   year_id INT REFERENCES years(id)
+);
+
+CREATE TABLE trims (
+   id SERIAL PRIMARY KEY, 
+   trim VARCHAR(80), 
+   make_id INT REFERENCES makes(id), 
+   product_line_id INT REFERENCES product_lines(id), 
+   generation_id INT REFERENCES generations(id), 
+   model_id INT REFERENCES models(id), 
+   year_id INT REFERENCES years(id)
+);
 
 -- not current
 CREATE TABLE listings (
