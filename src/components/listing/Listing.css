@@ -1,13 +1,35 @@
 .listing_wrapper {
-    padding-bottom: 10px;
+    margin-bottom: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
     color: rgba(0, 0, 0, 0.87);
-    font-weight: 400;
+    margin-top: 30px;
+    background: red;
 }
 
-.photo {
+/* .photo {
     width: 100%;
     margin-bottom: 10px;
+} */
+
+.slick-next {
+    margin-right: 50px;
 }
+
+.slick-prev {
+    margin-left: 50px;
+    z-index: 1;
+}
+
+.slick-dots button {
+    /* background: blue !important; */
+    position: absolute;
+    top: -50px;
+}
+
+.slider_container {
+    /* background: red; */
+}
+
+/* z-index is not needed except for slick-prev because the rest of the elements come after the photos element of the slider. to see this take out the css imports on listing.js and the .slick css elements on listing.css. */

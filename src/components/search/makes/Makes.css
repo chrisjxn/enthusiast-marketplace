@@ -3,6 +3,7 @@
     border: 1px solid #EEEEEE;
     /* border-radius: 10px; */
     width: 220px;
+    min-height: 470px;
 }
 
 .make {

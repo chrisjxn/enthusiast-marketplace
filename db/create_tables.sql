@@ -35,6 +35,13 @@ CREATE TABLE years (
    model_id INT REFERENCES models(id)
 );
 
+CREATE TABLE configurations (
+   id SERIAL PRIMARY KEY, 
+   attribute_type VARCHAR(20), 
+   attribute_value TEXT, 
+   year_id INT REFERENCES years(id)
+);
+
 
 -- not current
 CREATE TABLE listings (
