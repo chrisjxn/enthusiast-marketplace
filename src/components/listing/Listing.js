@@ -5,6 +5,7 @@ import './Listing.css';
 import { connect } from 'react-redux';
 import { getActiveListing } from './../../redux/reducer';
 import Slider from 'react-slick';
+import Paper from 'material-ui/Paper';
 
 class Listing extends Component {
 
@@ -62,14 +63,81 @@ class Listing extends Component {
                         <img src={this.props.activeListing[0].photo31} alt='cover' />
                     </Slider>
                 </div>
-                <div className="listing_wrapper">
-                    <div>{`Year: ${this.props.activeListing[0].year}`}</div>
-                    <div>{`Make: ${this.props.activeListing[0].make}`}</div>
-                    <div>{`Line: ${this.props.activeListing[0].line}`}</div>
-                    <div>{`Generation: ${this.props.activeListing[0].generation}`}</div>
-                    <div>{`Model: ${this.props.activeListing[0].model}`}</div>
-                </div>
-            </div>
+                <div className="listing_text">
+                    <div>
+                        <Paper className="title" zDepth={3}>
+                            {`${this.props.activeListing[0].year} ${this.props.activeListing[0].make} ${this.props.activeListing[0].model} (${this.props.activeListing[0].generation})`}
+                        </Paper>
+                    </div>
+                    <div className="columns">
+                        <Paper className="left_column" zDepth={3}>
+                            <div className="column_header">Pricing and Ownership History</div>
+                            <div className="column_content">
+                                <div className="category">Price:</div>
+                                <div className="value">{`$ ${this.props.activeListing[0].price}`}</div>
+                            </div>
+                            <div className="column_content">
+                                <div className="category">Miles:</div>
+                                <div className="value">{`${this.props.activeListing[0].miles}`}</div>
+                            </div>
+                            <div className="column_content">
+                                <div className="category">Location:</div>
+                                <div className="value">{`${this.props.activeListing[0].location}`}</div>
+                            </div>
+                            <div className="column_content">
+                                <div className="category">Owners:</div>
+                                <div className="value">{`${this.props.activeListing[0].owners}`}</div>
+                            </div>
+                            <div className="column_content">
+                                <div className="category">Modifications:</div>
+                                <div className="value">{`${this.props.activeListing[0].modifications}`}</div>
+                            </div>
+                            <div className="column_content">
+                                <div className="category">Track / Autocross:</div>
+                                <div className="value">{`${this.props.activeListing[0].track_autox_use}`}</div>
+                            </div>
+                            <div className="column_content">
+                                <div className="category">Maintenance:</div>
+                                <div className="value">{`${this.props.activeListing[0].maintenance_and_records}`}</div>
+                            </div>
+                        </Paper>
+                        <Paper className="right_column" zDepth={3}>
+                            <div className="column_header">Vehicle Configuration</div>
+                            <div className="column_content">
+                                <div className="category">Trim:</div>
+                                <div className="value">{`$ ${this.props.activeListing[0].trim}`}</div>
+                            </div>
+                            <div className="column_content">
+                                <div className="category">Engine:</div>
+                                <div className="value">{`${this.props.activeListing[0].engine}`}</div>
+                            </div>
+                            <div className="column_content">
+                                <div className="category">Transmission:</div>
+                                <div className="value">{`${this.props.activeListing[0].transmission}`}</div>
+                            </div>
+                            <div className="column_content">
+                                <div className="category">Color:</div>
+                                <div className="value">{`${this.props.activeListing[0].color}`}</div>
+                            </div>
+                            <div className="column_content">
+                                <div className="category">Interior:</div>
+                                <div className="value">{`${this.props.activeListing[0].interior}`}</div>
+                            </div>
+                            <div className="column_content">
+                                <div className="category">Packages:</div>
+                                <div className="value">{`${this.props.activeListing[0].package}`}</div>
+                            </div>
+                            <div className="column_content">
+                                <div className="category">Options:</div>
+                                <div className="value">{`${this.props.activeListing[0].option}`}</div>
+                            </div>
+                        </Paper>
+                    </div>
+                    <Paper className="description" zDepth={3}>
+                        {`${this.props.activeListing[0].description}`}
+                    </Paper>
+                </div >
+            </div >
 
         return (
             <div>

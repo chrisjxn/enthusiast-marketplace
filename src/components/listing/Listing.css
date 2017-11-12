@@ -1,11 +1,9 @@
-.listing_wrapper {
-    margin-bottom: 30px;
+.listing_text {
+    margin: 30px 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
     color: rgba(0, 0, 0, 0.87);
-    margin-top: 30px;
-    background: red;
 }
 
 /* .photo {
@@ -33,3 +31,84 @@
 }
 
 /* z-index is not needed except for slick-prev because the rest of the elements come after the photos element of the slider. to see this take out the css imports on listing.js and the .slick css elements on listing.css. */
+
+.title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    padding: 10px 20px;
+    color: black !important;
+}
+
+.columns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 60vw;
+    margin-top: 20px;
+}
+
+.left_column {
+    padding: 10px 20px;
+    margin-right: 10px;
+    color: black !important;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.right_column {
+    padding: 10px 20px;
+    margin-left: 10px;
+    color: black !important;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.column_header {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.column_content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 26vw;
+    margin-bottom: 10px;
+}
+
+.category {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #008AC9;
+}
+
+.value {
+    font-size: 1.1rem;
+    text-align: right;
+    width: 15vw;
+}
+
+.description {
+    margin-top: 20px;
+    padding: 10px 20px;
+    color: black !important;
+    width: 60vw;
+    text-align: justify;
+}
+
+.description:first-letter {
+    color: #008AC9;
+    font-weight: 900;
+    font-size: 75px;
+    float: left;
+    line-height: 60px;
+    padding-top: 4px;
+    padding-right: 8px;
+    padding-left: 3px;
+}

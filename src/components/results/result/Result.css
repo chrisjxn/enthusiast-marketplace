@@ -36,10 +36,11 @@
     color: rgba(0, 0, 0, 0.87);
     font-weight: 600;
     text-transform: uppercase;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #008AC9;
     text-align: center;
     width: 60vw;
     margin: 0px 6px;
+    background: rgba(255, 255, 255, 0.54);
 }
 
 .row1_price_miles {
@@ -47,9 +48,10 @@
     border-radius: 5px;
     color: rgba(0, 0, 0, 0.87);
     text-transform: uppercase;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #008AC9;
     text-align: center;
     width: 20vw;
+    background: rgba(255, 255, 255, 0.54);
 }
 
 .row2_color_interior {
@@ -57,10 +59,11 @@
     border-radius: 5px;
     color: rgba(0, 0, 0, 0.87);
     text-transform: uppercase;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #008AC9;
     text-align: center;
     width: 60vw;
     margin: 0px 6px;
+    background: rgba(255, 255, 255, 0.54);
 }
 
 .row2_location {
@@ -68,9 +71,10 @@
     border-radius: 5px;
     color: rgba(0, 0, 0, 0.87);
     text-transform: uppercase;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #008AC9;
     text-align: center;
     width: 30vw;
+    background: rgba(255, 255, 255, 0.54);
 }
 
 .row2_transmission {
@@ -78,9 +82,10 @@
     border-radius: 5px;
     color: rgba(0, 0, 0, 0.87);
     text-transform: uppercase;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #008AC9;
     text-align: center;
     width: 5vw;
+    background: rgba(255, 255, 255, 0.54);
 }
 
 .row2_owners {
@@ -88,10 +93,11 @@
     border-radius: 5px;
     color: rgba(0, 0, 0, 0.87);
     text-transform: uppercase;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #008AC9;
     text-align: center;
     width: 5vw;
     margin-left: 6px;
+    background: rgba(255, 255, 255, 0.54);
 }
 
 .paper {
