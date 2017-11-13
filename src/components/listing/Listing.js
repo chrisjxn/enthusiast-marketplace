@@ -100,6 +100,10 @@ class Listing extends Component {
                                 <div className="category">Maintenance:</div>
                                 <div className="value">{`${this.props.activeListing[0].maintenance_and_records}`}</div>
                             </div>
+                            <div className="column_content">
+                                <div className="category">Contact:</div>
+                                <div className="value">{`${this.props.activeListing[0].first_name} ${this.props.activeListing[0].last_name}\n${this.props.activeListing[0].email}\n${this.props.activeListing[0].phone}`}</div>
+                            </div>
                         </Paper>
                         <Paper className="right_column" zDepth={3}>
                             <div className="column_header">Vehicle Configuration</div>

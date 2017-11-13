@@ -105,6 +105,14 @@ CREATE TABLE trims (
    year_id INT REFERENCES years(id)
 );
 
+CREATE TABLE users (
+   id SERIAL PRIMARY KEY, 
+   first_name VARCHAR(30), 
+   last_name VARCHAR(30), 
+   email VARCHAR(40), 
+   phone VARCHAR(20)
+);
+
 -- not current
 CREATE TABLE listings (
     id SERIAL PRIMARY KEY,

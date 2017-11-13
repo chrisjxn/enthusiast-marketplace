@@ -52,7 +52,11 @@ SELECT
   description, 
   track_autox_use, 
   modifications, 
-  maintenance_and_records 
+  maintenance_and_records, 
+  first_name, 
+  last_name, 
+  email, 
+  phone 
 FROM listings 
 LEFT JOIN makes ON makes.id = listings.make_id 
 LEFT JOIN product_lines ON product_lines.id = listings.product_line_id 
@@ -66,4 +70,5 @@ LEFT JOIN options ON options.id = listings.option_id
 LEFT JOIN packages ON packages.id = listings.package_id 
 LEFT JOIN transmissions ON transmissions.id = listings.transmission_id 
 LEFT JOIN trims ON trims.id = listings.trim_id 
+LEFT JOIN users ON users.id = listings.user_id 
 WHERE listings.id = $1;
