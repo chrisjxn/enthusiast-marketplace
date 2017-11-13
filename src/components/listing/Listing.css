@@ -116,3 +116,44 @@
     padding-right: 8px;
     padding-left: 3px;
 }
+
+@media only screen and (max-width: 700px) {
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .column_header {
+        font-size: 1rem;
+    }
+
+    .category {
+        font-size: 0.9rem;
+    }
+
+    .value {
+        font-size: 0.9rem;
+        width: 20vw;
+    }
+
+    .columns {
+        width: 80vw;
+    }
+
+    .left_column {
+        width: 40vw;
+    }
+    
+    .right_column {
+        width: 40vw;
+    }
+
+    .column_content {
+        width: 34.67vw;
+    }
+    
+    .description {
+        width: 80vw;
+        font-size: 0.9rem;
+    }
+
+}

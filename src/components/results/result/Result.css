@@ -105,3 +105,29 @@
     height: 33vw;
     margin-bottom: 20px;
 }
+
+@media only screen and (max-width: 700px) {
+    .paper {
+        background: yellow;
+        width: 80vw;
+        height: 44vw;
+    }
+
+    .cover_photo {
+        width: 80vw;
+    }
+
+    .result_row {
+        width: 80vw;
+    }
+
+    .result_row div {
+        font-size: 0.8rem;
+    }
+
+    .row2_transmission {
+        width: 5vw;
+        font-size: 0.7rem !important;
+        padding: 10px 5px;
+    }
+}
