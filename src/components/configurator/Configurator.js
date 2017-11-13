@@ -8,6 +8,8 @@ import { getColors } from './../../redux/reducer';
 import { getInteriors } from './../../redux/reducer';
 import { getPackages } from './../../redux/reducer';
 import { getOptions } from './../../redux/reducer';
+import { getAllListings } from './../../redux/reducer';
+import Paper from 'material-ui/Paper';
 import Trim from './trim/Trim';
 import Engine from './engine/Engine';
 import Transmission from './transmission/Transmission';
@@ -26,6 +28,7 @@ class Configurator extends Component {
         this.props.getInteriors(this.props.match.params.yearId);
         this.props.getPackages(this.props.match.params.yearId);
         this.props.getOptions(this.props.match.params.yearId);
+        this.props.getAllListings();
     }
 
     render() {
@@ -36,6 +39,7 @@ class Configurator extends Component {
         console.log(this.props.interiors)
         console.log(this.props.packages)
         console.log(this.props.options)
+        console.log(this.props.allListings)
 
         const trimsList = this.props.trims.length === 0 ?
             <div>Loading...</div> :
@@ -93,22 +97,52 @@ class Configurator extends Component {
                 )
             })
 
+        const vehicle = this.props.allListings.length === 0 ?
+            <div className="vehicle">Loading...</div> :
+            <div className="vehicle">{`${this.props.allListings[0].year} ${this.props.allListings[0].make} ${this.props.allListings[0].model} (${this.props.allListings[0].generation})`}</div>
+
         return (
-            <div>
-                <div>Trims</div>
-                <div>{trimsList}</div>
-                <div>Engines</div>
-                <div>{enginesList}</div>
-                <div>Transmissions</div>
-                <div>{transmissionsList}</div>
-                <div>Colors</div>
-                <div>{colorsList}</div>
-                <div>Interiors</div>
-                <div>{interiorsList}</div>
-                <div>Packages</div>
-                <div>{packagesList}</div>
-                <div>Options</div>
-                <div>{optionsList}</div>
+            <div className="configurator_background">
+                <div className="configurator_wrapper">
+                    <div className="refine_search_header">Refine Search</div>
+                    {vehicle}
+                    <div className="columns_wrapper">
+                        <div className="configurator_column">
+                            <Paper className="list_section" zDepth={3}>
+                                <div className="list_section_header">Trims</div>
+                                <div>{trimsList}</div>
+                            </Paper>
+                            <Paper className="list_section" zDepth={3}>
+                                <div className="list_section_header">Engines</div>
+                                <div>{enginesList}</div>
+                            </Paper>
+                            <Paper className="list_section" zDepth={3}>
+                                <div className="list_section_header">Transmissions</div>
+                                <div>{transmissionsList}</div>
+                            </Paper>
+                        </div>
+                        <div className="configurator_column">
+                            <Paper className="list_section" zDepth={3}>
+                                <div className="list_section_header">Colors</div>
+                                <div>{colorsList}</div>
+                            </Paper>
+                            <Paper className="list_section" zDepth={3}>
+                                <div className="list_section_header">Interiors</div>
+                                <div>{interiorsList}</div>
+                            </Paper>
+                        </div>
+                        <div className="configurator_column">
+                            <Paper className="list_section" zDepth={3}>
+                                <div className="list_section_header">Packages</div>
+                                <div>{packagesList}</div>
+                            </Paper>
+                            <Paper className="list_section" zDepth={3}>
+                                <div className="list_section_header">Options</div>
+                                <div>{optionsList}</div>
+                            </Paper>
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }
@@ -122,8 +156,9 @@ function mapStateToProps(state) {
         colors: state.colors,
         interiors: state.interiors,
         packages: state.packages,
-        options: state.options
+        options: state.options,
+        allListings: state.allListings
     }
 }
 
-export default connect(mapStateToProps, { getTrims, getEngines, getTransmissions, getColors, getInteriors, getPackages, getOptions })(Configurator)
+export default connect(mapStateToProps, { getTrims, getEngines, getTransmissions, getColors, getInteriors, getPackages, getOptions, getAllListings })(Configurator)

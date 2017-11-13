@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Search.css';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Paper from 'material-ui/Paper';
 import Makes from './makes/Makes';
@@ -21,7 +22,10 @@ class Search extends Component {
                 </div>
                 <div className="results_button_wrapper">
                     <Paper className="results_button" zDepth={3}>
-                        <Link to='/results' className="results_link_text">Search</Link>
+                        <Link to='/results' className="results_link_text">See Results Now</Link>
+                    </Paper>
+                    <Paper className="results_button" zDepth={3}>
+                        <Link to={`/configurator/${this.props.selectedYears[0]}`} className="results_link_text">Refine Search</Link>
                     </Paper>
                 </div>
             </div>
@@ -29,4 +33,10 @@ class Search extends Component {
     }
 }
 
-export default Search;
+function mapStateToProps(state) {
+    return {
+        selectedYears: state.selectedYears,
+    }
+}
+
+export default connect(mapStateToProps)(Search);

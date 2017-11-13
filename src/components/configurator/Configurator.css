@@ -1,0 +1,44 @@
+.configurator_background {
+    position: absolute;
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('./../../assets/1m-background-white.png');
+    background-size: 100%;
+    z-index: -1;
+}
+
+.configurator_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.refine_search_header {
+    font-size: 1.5rem;
+    font-weight: 500;
+    padding: 10px 20px;
+    margin-top: 20px;
+}
+
+.vehicle {
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 10px 20px;
+    color: #008AC9;
+    margin-bottom: 10px;
+}
+
+/* .columns_wrapper {
+
+} */
+
+.list_section {
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.list_section_header {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
