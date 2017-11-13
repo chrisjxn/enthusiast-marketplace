@@ -21,6 +21,8 @@ const initialState = {
     interiors: [],
     packages: [],
     options: [],
+    selectedColors: [],
+    configListings: [],
 }
 
 const GET_ALL_MAKES = 'GET_ALL_MAKES';
@@ -42,6 +44,8 @@ const GET_COLORS = 'GET_COLORS';
 const GET_INTERIORS = 'GET_INTERIORS';
 const GET_PACKAGES = 'GET_PACKAGES';
 const GET_OPTIONS = 'GET_OPTIONS';
+const SELECT_COLORS = 'SELECT_COLORS';
+const GET_CONFIG_LISTINGS = 'GET_CONFIG_LISTINGS';
 
 export function getAllMakes() {
     const allMakes = axios.get('/api/makes').then(res => res)
@@ -188,6 +192,21 @@ export function getOptions(yearId) {
     return {
         type: GET_OPTIONS,
         payload: options
+    }
+}
+
+export function selectColors(color) {
+    return {
+        type: SELECT_COLORS,
+        payload: color
+    }
+}
+
+export function getConfigListings(colorId) {
+    const configListings = axios.get(`/api/configlistings/${colorId}`).then(res => res)
+    return {
+        type: GET_CONFIG_LISTINGS,
+        payload: configListings
     }
 }
 
@@ -369,6 +388,24 @@ export default function reducer(state = initialState, action) {
         case GET_OPTIONS + '_FULFILLED':
             return Object.assign({}, state, { options: action.payload.data });
         case GET_OPTIONS + '_REJECTED':
+            return state;
+
+        case SELECT_COLORS:
+            let updatedColorsArr = [];
+            if (state.selectedColors.includes(action.payload)) {
+                updatedColorsArr = state.selectedColors.filter(color => {
+                    return color !== action.payload
+                })
+            } else {
+                updatedColorsArr = [...state.selectedColors, action.payload]
+            }
+            return Object.assign({}, state, { selectedColors: updatedColorsArr });
+
+        case GET_CONFIG_LISTINGS + '_PENDING':
+            return state;
+        case GET_CONFIG_LISTINGS + '_FULFILLED':
+            return Object.assign({}, state, { configListings: action.payload.data });
+        case GET_CONFIG_LISTINGS + '_REJECTED':
             return state;
 
         default:

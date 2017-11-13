@@ -1,0 +1,20 @@
+.configResults_background {
+    position: absolute;
+    width: 100%;
+    min-height: 100vh;
+    /* background-image: url('./../../assets/1m-background-white.png');
+    background-size: 100%; */
+    z-index: -1;
+}
+
+.configResults_grid {
+    margin: 10vh auto 10vh auto;
+    width: 70vw;
+}
+
+@media only screen and (max-width: 700px) {
+    .configResults_grid {
+        margin: 5vh auto 5vh auto;
+        width: 90vw;
+    }
+}

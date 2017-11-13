@@ -26,6 +26,7 @@ app.get('/api/colors/:yearId', controller.getColors);
 app.get('/api/interiors/:yearId', controller.getInteriors);
 app.get('/api/packages/:yearId', controller.getPackages);
 app.get('/api/options/:yearId', controller.getOptions);
+app.get('/api/configlistings/:colorId', controller.getConfigListings);
 
 const PORT = 3005;
 app.listen(PORT, console.log(`Server listening on port ${PORT}`));

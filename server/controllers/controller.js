@@ -82,5 +82,11 @@ module.exports = {
         db.get_options([req.params.yearId]).then(options => {
             res.status(200).send(options)
         })
+    },
+    getConfigListings: (req, res) => {
+        let db = req.app.get('db');
+        db.get_config_listings([req.params.colorId]).then(configListings => {
+            res.status(200).send(configListings)
+        })
     }
 }

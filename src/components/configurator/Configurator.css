@@ -42,3 +42,29 @@
     font-weight: 500;
     margin-bottom: 10px;
 }
+
+.config_results_button_wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 240px;
+    /* margin: 10px auto auto auto; */
+}
+
+.config_results_button {
+    color: #008AC9;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    padding: 10px 25px;
+    /* border-radius: 10px; */
+    border: 1px solid #EEEEEE;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.config_results_link_text {
+    color: #008AC9;
+}
+
+.config_results_link_text:link, .config_results_link_text:visited, .config_results_link_text:hover, .config_results_link_text:active {
+    text-decoration: none;
+}

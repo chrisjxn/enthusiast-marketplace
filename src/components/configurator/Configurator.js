@@ -10,6 +10,7 @@ import { getPackages } from './../../redux/reducer';
 import { getOptions } from './../../redux/reducer';
 import { getAllListings } from './../../redux/reducer';
 import Paper from 'material-ui/Paper';
+import { Link } from 'react-router-dom';
 import Trim from './trim/Trim';
 import Engine from './engine/Engine';
 import Transmission from './transmission/Transmission';
@@ -142,6 +143,11 @@ class Configurator extends Component {
                             </Paper>
                         </div>
                     </div>
+                    <div className="config_results_button_wrapper">
+                    <Paper className="config_results_button" zDepth={3}>
+                        <Link to={`/configresults/${this.props.selectedColors[0]}`} className="config_results_link_text">Get Results</Link>
+                    </Paper>
+                    </div>
                 </div>
             </div>
         )
@@ -157,7 +163,8 @@ function mapStateToProps(state) {
         interiors: state.interiors,
         packages: state.packages,
         options: state.options,
-        allListings: state.allListings
+        allListings: state.allListings,
+        selectedColors: state.selectedColors
     }
 }
 

@@ -1,0 +1,133 @@
+.configResult_wrapper {
+    /* width: 60vw; */
+    /* margin: auto; */
+    padding-bottom: 30px;
+}
+
+.configResult_flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.listing_link_text {
+    color: rgba(255, 255, 255, 0.87);
+}
+
+.listing_link_text:link, .listing_link_text:visited, .listing_link_text:hover, .listing_link_text:active {
+    text-decoration: none;
+}
+
+.cover_photo {
+    width: 60vw;
+}
+
+.configResult_row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 60vw;
+    margin-bottom: 6px;
+}
+
+.row1_title {
+    padding: 10px;
+    border-radius: 5px;
+    color: rgba(0, 0, 0, 0.87);
+    font-weight: 600;
+    text-transform: uppercase;
+    border: 1px solid #008AC9;
+    text-align: center;
+    width: 60vw;
+    margin: 0px 6px;
+    background: rgba(255, 255, 255, 0.54);
+}
+
+.row1_price_miles {
+    padding: 10px;
+    border-radius: 5px;
+    color: rgba(0, 0, 0, 0.87);
+    text-transform: uppercase;
+    border: 1px solid #008AC9;
+    text-align: center;
+    width: 20vw;
+    background: rgba(255, 255, 255, 0.54);
+}
+
+.row2_color_interior {
+    padding: 10px;
+    border-radius: 5px;
+    color: rgba(0, 0, 0, 0.87);
+    text-transform: uppercase;
+    border: 1px solid #008AC9;
+    text-align: center;
+    width: 60vw;
+    margin: 0px 6px;
+    background: rgba(255, 255, 255, 0.54);
+}
+
+.row2_location {
+    padding: 10px;
+    border-radius: 5px;
+    color: rgba(0, 0, 0, 0.87);
+    text-transform: uppercase;
+    border: 1px solid #008AC9;
+    text-align: center;
+    width: 30vw;
+    background: rgba(255, 255, 255, 0.54);
+}
+
+.row2_transmission {
+    padding: 10px;
+    border-radius: 5px;
+    color: rgba(0, 0, 0, 0.87);
+    text-transform: uppercase;
+    border: 1px solid #008AC9;
+    text-align: center;
+    width: 5vw;
+    background: rgba(255, 255, 255, 0.54);
+}
+
+.row2_owners {
+    padding: 10px;
+    border-radius: 5px;
+    color: rgba(0, 0, 0, 0.87);
+    text-transform: uppercase;
+    border: 1px solid #008AC9;
+    text-align: center;
+    width: 5vw;
+    margin-left: 6px;
+    background: rgba(255, 255, 255, 0.54);
+}
+
+.paper {
+    width: 60vw;
+    height: 33vw;
+    margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 700px) {
+    .paper {
+        background: yellow;
+        width: 80vw;
+        height: 44vw;
+    }
+
+    .cover_photo {
+        width: 80vw;
+    }
+
+    .configResult_row {
+        width: 80vw;
+    }
+
+    .configResult_row div {
+        font-size: 0.8rem;
+    }
+
+    .row2_transmission {
+        width: 5vw;
+        font-size: 0.7rem !important;
+        padding: 10px 5px;
+    }
+}
