@@ -13,7 +13,14 @@ const initialState = {
     allYears: [],
     selectedYears: [],
     allListings: [],
-    activeListing: []
+    activeListing: [],
+    trims: [],
+    engines: [],
+    transmissions: [],
+    colors: [],
+    interiors: [],
+    packages: [],
+    options: [],
 }
 
 const GET_ALL_MAKES = 'GET_ALL_MAKES';
@@ -28,6 +35,13 @@ const GET_ALL_YEARS = 'GET_ALL_YEARS';
 const SELECT_YEARS = 'SELECT_YEARS';
 const GET_ALL_LISTINGS = 'GET_ALL_LISTINGS';
 const GET_ACTIVE_LISTING = 'GET_ACTIVE_LISTING';
+const GET_TRIMS = 'GET_TRIMS';
+const GET_ENGINES = 'GET_ENGINES';
+const GET_TRANSMISSIONS = 'GET_TRANSMISSIONS';
+const GET_COLORS = 'GET_COLORS';
+const GET_INTERIORS = 'GET_INTERIORS';
+const GET_PACKAGES = 'GET_PACKAGES';
+const GET_OPTIONS = 'GET_OPTIONS';
 
 export function getAllMakes() {
     const allMakes = axios.get('/api/makes').then(res => res)
@@ -121,6 +135,62 @@ export function getActiveListing(listingId) {
     }
 }
 
+export function getTrims(yearId) {
+    const trims = axios.get(`/api/trims/${yearId}`).then(res => res)
+    return {
+        type: GET_TRIMS,
+        payload: trims
+    }
+}
+
+export function getEngines(yearId) {
+    const engines = axios.get(`/api/engines/${yearId}`).then(res => res)
+    return {
+        type: GET_ENGINES,
+        payload: engines
+    }
+}
+
+export function getTransmissions(yearId) {
+    const transmissions = axios.get(`/api/transmissions/${yearId}`).then(res => res)
+    return {
+        type: GET_TRANSMISSIONS,
+        payload: transmissions
+    }
+}
+
+export function getColors(yearId) {
+    const colors = axios.get(`/api/colors/${yearId}`).then(res => res)
+    return {
+        type: GET_COLORS,
+        payload: colors
+    }
+}
+
+export function getInteriors(yearId) {
+    const interiors = axios.get(`/api/interiors/${yearId}`).then(res => res)
+    return {
+        type: GET_INTERIORS,
+        payload: interiors
+    }
+}
+
+export function getPackages(yearId) {
+    const packages = axios.get(`/api/packages/${yearId}`).then(res => res)
+    return {
+        type: GET_PACKAGES,
+        payload: packages
+    }
+}
+
+export function getOptions(yearId) {
+    const options = axios.get(`/api/options/${yearId}`).then(res => res)
+    return {
+        type: GET_OPTIONS,
+        payload: options
+    }
+}
+
 export default function reducer(state = initialState, action) {
     switch (action.type) {
         case GET_ALL_MAKES + '_PENDING':
@@ -129,6 +199,7 @@ export default function reducer(state = initialState, action) {
             return Object.assign({}, state, { allMakes: action.payload.data });
         case GET_ALL_MAKES + '_REJECTED':
             return state;
+
         case SELECT_MAKES:
             let updatedMakesArr = [];
             if (state.selectedMakes.includes(action.payload)) {
@@ -139,6 +210,7 @@ export default function reducer(state = initialState, action) {
                 updatedMakesArr = [...state.selectedMakes, action.payload]
             }
             return Object.assign({}, state, { selectedMakes: updatedMakesArr });
+
         case GET_ALL_LINES + '_PENDING':
             return state;
         case GET_ALL_LINES + '_FULFILLED':
@@ -150,6 +222,7 @@ export default function reducer(state = initialState, action) {
             return Object.assign({}, state, { allLines: filteredLines });
         case GET_ALL_LINES + '_REJECTED':
             return state;
+
         case SELECT_LINES:
             let updatedLinesArr = [];
             if (state.selectedLines.includes(action.payload)) {
@@ -160,6 +233,7 @@ export default function reducer(state = initialState, action) {
                 updatedLinesArr = [...state.selectedLines, action.payload]
             }
             return Object.assign({}, state, { selectedLines: updatedLinesArr });
+
         case GET_ALL_GENERATIONS + '_PENDING':
             return state;
         case GET_ALL_GENERATIONS + '_FULFILLED':
@@ -171,6 +245,7 @@ export default function reducer(state = initialState, action) {
             return Object.assign({}, state, { allGenerations: filteredGenerations });
         case GET_ALL_GENERATIONS + '_REJECTED':
             return state;
+
         case SELECT_GENERATIONS:
             let updatedGenerationsArr = [];
             if (state.selectedGenerations.includes(action.payload)) {
@@ -181,6 +256,7 @@ export default function reducer(state = initialState, action) {
                 updatedGenerationsArr = [...state.selectedGenerations, action.payload]
             }
             return Object.assign({}, state, { selectedGenerations: updatedGenerationsArr });
+
         case GET_ALL_MODELS + '_PENDING':
             return state;
         case GET_ALL_MODELS + '_FULFILLED':
@@ -192,6 +268,7 @@ export default function reducer(state = initialState, action) {
             return Object.assign({}, state, { allModels: filteredModels });
         case GET_ALL_MODELS + '_REJECTED':
             return state;
+
         case SELECT_MODELS:
             let updatedModelsArr = [];
             if (pluck(state.selectedModels, 'id').includes(action.payload1)) {
@@ -202,6 +279,7 @@ export default function reducer(state = initialState, action) {
                 updatedModelsArr = [...state.selectedModels, { id: action.payload1, model: action.payload2 }]
             }
             return Object.assign({}, state, { selectedModels: updatedModelsArr });
+
         case GET_ALL_YEARS + '_PENDING':
             return state;
         case GET_ALL_YEARS + '_FULFILLED':
@@ -213,6 +291,7 @@ export default function reducer(state = initialState, action) {
             return Object.assign({}, state, { allYears: filteredYears });
         case GET_ALL_YEARS + '_REJECTED':
             return state;
+
         case SELECT_YEARS:
             let updatedYearsArr = [];
             if (state.selectedYears.includes(action.payload)) {
@@ -223,6 +302,7 @@ export default function reducer(state = initialState, action) {
                 updatedYearsArr = [...state.selectedYears, action.payload]
             }
             return Object.assign({}, state, { selectedYears: updatedYearsArr });
+
         case GET_ALL_LISTINGS + '_PENDING':
             return state;
         case GET_ALL_LISTINGS + '_FULFILLED':
@@ -234,12 +314,63 @@ export default function reducer(state = initialState, action) {
             return Object.assign({}, state, { allListings: filteredListings });
         case GET_ALL_LISTINGS + '_REJECTED':
             return state;
+
         case GET_ACTIVE_LISTING + '_PENDING':
             return state;
         case GET_ACTIVE_LISTING + '_FULFILLED':
             return Object.assign({}, state, { activeListing: action.payload.data });
         case GET_ACTIVE_LISTING + '_REJECTED':
             return state;
+
+        case GET_TRIMS + '_PENDING':
+            return state;
+        case GET_TRIMS + '_FULFILLED':
+            return Object.assign({}, state, { trims: action.payload.data });
+        case GET_TRIMS + '_REJECTED':
+            return state;
+
+        case GET_ENGINES + '_PENDING':
+            return state;
+        case GET_ENGINES + '_FULFILLED':
+            return Object.assign({}, state, { engines: action.payload.data });
+        case GET_ENGINES + '_REJECTED':
+            return state;
+
+        case GET_TRANSMISSIONS + '_PENDING':
+            return state;
+        case GET_TRANSMISSIONS + '_FULFILLED':
+            return Object.assign({}, state, { transmissions: action.payload.data });
+        case GET_TRANSMISSIONS + '_REJECTED':
+            return state;
+
+        case GET_COLORS + '_PENDING':
+            return state;
+        case GET_COLORS + '_FULFILLED':
+            return Object.assign({}, state, { colors: action.payload.data });
+        case GET_COLORS + '_REJECTED':
+            return state;
+
+        case GET_INTERIORS + '_PENDING':
+            return state;
+        case GET_INTERIORS + '_FULFILLED':
+            return Object.assign({}, state, { interiors: action.payload.data });
+        case GET_INTERIORS + '_REJECTED':
+            return state;
+
+        case GET_PACKAGES + '_PENDING':
+            return state;
+        case GET_PACKAGES + '_FULFILLED':
+            return Object.assign({}, state, { packages: action.payload.data });
+        case GET_PACKAGES + '_REJECTED':
+            return state;
+
+        case GET_OPTIONS + '_PENDING':
+            return state;
+        case GET_OPTIONS + '_FULFILLED':
+            return Object.assign({}, state, { options: action.payload.data });
+        case GET_OPTIONS + '_REJECTED':
+            return state;
+
         default:
             return state;
     }

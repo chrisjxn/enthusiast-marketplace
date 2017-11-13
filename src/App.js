@@ -8,6 +8,7 @@ import Home from './components/home/Home';
 import Search from './components/search/Search';
 import Results from './components/results/Results';
 import Listing from './components/listing/Listing';
+import Configurator from './components/configurator/Configurator';
 
 // get themes for the muiTheme below at this link: https://sm-react.github.io/storybook-boilerplate/?theme-ind=0&theme-sidebar=false&theme-full=false&knob-Title=Welcome%20to%20React-Theming&knob-Subtitle=Storybook%20Boilerplate%20Project&knob-Label1=Hello%20Button&knob-Label2=Hello%20Button&selectedKind=Material-UI&selectedStory=Components&full=0&down=1&left=1&panelRight=0&downPanel=sm%2Fstorybook-addon-material-ui%2Fmaterial-panel
 
@@ -63,6 +64,7 @@ class App extends Component {
               <Route path='/search' component={Search} />
               <Route path='/results' component={Results} />
               <Route path='/listing/:listingId' component={Listing} />
+              <Route path='/configurator/:yearId' component={Configurator} />
             </Switch>
           </div>
         </HashRouter>

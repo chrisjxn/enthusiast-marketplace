@@ -40,5 +40,47 @@ module.exports = {
         db.get_active_listing([req.params.listingId]).then(activeListing => {
             res.status(200).send(activeListing)
         })
+    },
+    getTrims: (req, res) => {
+        let db = req.app.get('db');
+        db.get_trims([req.params.yearId]).then(trims => {
+            res.status(200).send(trims)
+        })
+    },
+    getEngines: (req, res) => {
+        let db = req.app.get('db');
+        db.get_engines([req.params.yearId]).then(engines => {
+            res.status(200).send(engines)
+        })
+    },
+    getTransmissions: (req, res) => {
+        let db = req.app.get('db');
+        db.get_transmissions([req.params.yearId]).then(transmissions => {
+            res.status(200).send(transmissions)
+        })
+    },
+    getColors: (req, res) => {
+        let db = req.app.get('db');
+        db.get_colors([req.params.yearId]).then(colors => {
+            res.status(200).send(colors)
+        })
+    },
+    getInteriors: (req, res) => {
+        let db = req.app.get('db');
+        db.get_interiors([req.params.yearId]).then(interiors => {
+            res.status(200).send(interiors)
+        })
+    },
+    getPackages: (req, res) => {
+        let db = req.app.get('db');
+        db.get_packages([req.params.yearId]).then(packages => {
+            res.status(200).send(packages)
+        })
+    },
+    getOptions: (req, res) => {
+        let db = req.app.get('db');
+        db.get_options([req.params.yearId]).then(options => {
+            res.status(200).send(options)
+        })
     }
 }

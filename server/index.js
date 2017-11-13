@@ -19,6 +19,13 @@ app.get('/api/models', controller.getAllModels);
 app.get('/api/years', controller.getAllYears);
 app.get('/api/listings', controller.getAllListings);
 app.get('/api/listing/:listingId', controller.getActiveListing);
+app.get('/api/trims/:yearId', controller.getTrims);
+app.get('/api/engines/:yearId', controller.getEngines);
+app.get('/api/transmissions/:yearId', controller.getTransmissions);
+app.get('/api/colors/:yearId', controller.getColors);
+app.get('/api/interiors/:yearId', controller.getInteriors);
+app.get('/api/packages/:yearId', controller.getPackages);
+app.get('/api/options/:yearId', controller.getOptions);
 
 const PORT = 3005;
 app.listen(PORT, console.log(`Server listening on port ${PORT}`));
